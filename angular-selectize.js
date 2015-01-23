@@ -75,7 +75,9 @@
         function watchParentOptions() {
           scope.$parent.$watchCollection(optionsExpression, function(options) {
             newOptions = options || [];
-            optionsUpdate = true;
+            if(selectize) {
+              optionsUpdate = true;
+            }
             if (!updateTimer) {
               scheduleUpdate();
             }
